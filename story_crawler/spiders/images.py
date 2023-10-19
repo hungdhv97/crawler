@@ -10,5 +10,5 @@ class ImagesSpider(scrapy.Spider):
 
     def parse(self, response):
         item = StoryCrawlerItem()
-        item['image_urls'] = response.css('img::attr(src)').extract()
+        item['image_urls'] = [response.urljoin(url) for url in response.css('img::attr(src)').extract()]
         yield item
