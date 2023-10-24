@@ -3,10 +3,15 @@ import scrapy
 from story_crawler.items import StoryCrawlerItem
 
 
-class ImagesSpider(scrapy.Spider):
+class StorySpider(scrapy.Spider):
     name = 'images_spider'
     allowed_domains = ['truyenfull.vn']
     start_urls = ['https://truyenfull.vn/']
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'scrapy.pipelines.images.ImagesPipeline': 1,
+        }
+    }
 
     def parse(self, response):
         item = StoryCrawlerItem()

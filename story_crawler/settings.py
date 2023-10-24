@@ -90,5 +90,11 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
-ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
+ITEM_PIPELINES = {
+    'scrapy.pipelines.images.ImagesPipeline': 1,
+    'story_crawler.pipelines.DatabasePipeline': 100,
+    'story_crawler.pipelines.CloudinaryPipeline': 200,
+    'story_crawler.pipelines.DataStoragePipeline': 300,
+}
+
 IMAGES_STORE = 'images_story'
