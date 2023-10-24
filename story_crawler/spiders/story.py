@@ -4,7 +4,7 @@ from story_crawler.items import StoryCrawlerItem
 
 
 class StorySpider(scrapy.Spider):
-    name = 'images_spider'
+    name = 'story'
     allowed_domains = ['truyenfull.vn']
     start_urls = ['https://truyenfull.vn/']
     custom_settings = {
