@@ -1,0 +1,1 @@
+INSERT INTO dormant_customer VALUES (800000002, '1994-03-03', 'Jane Doe', 'F', '01035602583', 'janedoe', 'JaneD', 'xovkd5o@example.com', 'jane1234', '2020-01-01 09:00:00', '2021-01-01 10:00:00', '2023-11-01 15:00:00', '2023-11-01 15:00:00');

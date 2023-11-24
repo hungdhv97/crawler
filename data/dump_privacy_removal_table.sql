@@ -1,0 +1,1 @@
+INSERT INTO privacy_removal VALUES (1, 'RN12345678', 'RDN1234', 0, '2023-11-01 17:00:00');
