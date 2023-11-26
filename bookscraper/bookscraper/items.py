@@ -6,11 +6,6 @@
 import scrapy
 
 
-class StoryCrawlerItem(scrapy.Item):
-    image_urls = scrapy.Field()
-    images = scrapy.Field()
-
-
 class BookItem(scrapy.Item):
     url = scrapy.Field()
     title = scrapy.Field()

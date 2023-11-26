@@ -1,6 +1,6 @@
 import scrapy
 
-from story_crawler.items import BookItem
+from bookscraper.items import BookItem
 
 
 class BookspiderSpider(scrapy.Spider):

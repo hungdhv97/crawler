@@ -1,4 +1,4 @@
-# Scrapy settings for story_crawler project
+# Scrapy settings for storyscraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,13 +7,13 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "story_crawler"
+BOT_NAME = "storyscraper"
 
-SPIDER_MODULES = ["story_crawler.spiders"]
-NEWSPIDER_MODULE = "story_crawler.spiders"
+SPIDER_MODULES = ["storyscraper.spiders"]
+NEWSPIDER_MODULE = "storyscraper.spiders"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = "story_crawler (+http://www.yourdomain.com)"
+# USER_AGENT = "storyscraper (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -44,13 +44,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
-#    "story_crawler.middlewares.StoryCrawlerSpiderMiddleware": 543,
+#    "storyscraper.middlewares.StoryscraperSpiderMiddleware": 543,
 # }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
-#    "story_crawler.middlewares.StoryCrawlerDownloaderMiddleware": 543,
+#    "storyscraper.middlewares.StoryscraperDownloaderMiddleware": 543,
 # }
 
 # Enable or disable extensions
@@ -62,7 +62,11 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 # ITEM_PIPELINES = {
-#    "story_crawler.pipelines.StoryCrawlerPipeline": 300,
+#     'scrapy.pipelines.images.ImagesPipeline': 1,
+#     'storyscraper.pipelines.DatabasePipeline': 100,
+#     'storyscraper.pipelines.CloudinaryPipeline': 200,
+#     'storyscraper.pipelines.DataStoragePipeline': 300,
+#     "storyscraper.pipelines.StoryscraperPipeline": 300,
 # }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -90,12 +94,5 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
-ITEM_PIPELINES = {
-    # 'scrapy.pipelines.images.ImagesPipeline': 1,
-    # 'story_crawler.pipelines.DatabasePipeline': 100,
-    # 'story_crawler.pipelines.CloudinaryPipeline': 200,
-    # 'story_crawler.pipelines.DataStoragePipeline': 300,
-    'story_crawler.pipelines.BookScraperPipeline': 400,
-}
 
 IMAGES_STORE = 'images_story'

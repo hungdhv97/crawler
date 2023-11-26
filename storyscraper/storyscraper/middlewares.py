@@ -5,11 +5,10 @@
 
 from scrapy import signals
 
-
 # useful for handling different item types with a single interface
 
 
-class StoryCrawlerSpiderMiddleware:
+class StoryscraperSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -56,7 +55,7 @@ class StoryCrawlerSpiderMiddleware:
         spider.logger.info("Spider opened: %s" % spider.name)
 
 
-class StoryCrawlerDownloaderMiddleware:
+class StoryscraperDownloaderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
