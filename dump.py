@@ -25,16 +25,16 @@ conn = engine.connect()
 # Dictionary of tables and their primary key columns
 table_primary_keys = {
     'address': 'address_id',
-    'admin_audit_log': 'admin_audit_log',
+    'admin_audit_log': 'admin_audit_log_id',
     'agreement': 'agreement_id',
-    'block': 'bock_id',
+    'block': 'block_id',
     'customer': 'customer_id',
-    'dormant_customer': 'dormant_customer_id',
+    'dormant_customer': 'customer_id',
     'dowant_user': 'dowant_user_id',
     'identity_verification': 'identity_verification_id',
     'phone_certification': 'phone_certification_id',
     'privacy_removal': 'privacy_removal_id',
-    'reserved_withdrawal': 'reserved_withdrawal_id',
+    'reserved_withdrawal': 'customer_id',
     'social': 'social_id',
 }
 
@@ -119,7 +119,7 @@ def dump_table_to_sql(table_name, primary_key_column, columns, batch_size=100):
         total_rows_table = get_total_row_count(table_name)
         with open(file_path, 'w') as file:
             while True:
-                sql_command = f"SELECT * FROM {table_name} WHERE {primary_key_column} > {last_id} ORDER BY id ASC LIMIT {batch_size};"
+                sql_command = f"SELECT * FROM {table_name} WHERE {primary_key_column} > {last_id} ORDER BY {primary_key_column} ASC LIMIT {batch_size};"
                 with conn.connection.cursor() as cursor:
                     cursor.execute(sql_command)
                     rows = cursor.fetchall()

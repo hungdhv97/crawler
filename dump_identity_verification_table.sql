@@ -1,12 +1,2 @@
-SELECT identity_verification_id,
-       active,
-       DATE_ADD('1970-01-01', INTERVAL FLOOR(RAND() * (DATEDIFF('2000-12-31', '1970-01-01')+1)) DAY) AS birthday, -- Eg: 1987-05-21
-       LPAD(FLOOR(RAND() * POW(10, 88)), 88, '0')                                                    AS ci,       -- Random 88-digit number
-       LPAD(FLOOR(RAND() * POW(10, 64)), 64, '0')                                                    AS di,       -- Random 64-digit number
-       name,
-       gender,
-       CONCAT('010', LPAD(FLOOR(RAND() * 90000000) + 10000000, 8, '0'))                              AS phone,    -- Eg: 01012345678
-       customer_id,
-       created_at,
-       updated_at
-FROM identity_verification;
+INSERT INTO identity_verification VALUES (1, 1, '1980-10-13', '6d0310552889fa021610b73144646ddb817c3888ed621f6d39f4b10b9e6ce3cbd7f59e5abcf621def413ef74', '8a39e1da246841df6ead480818ea146709a22c02293c498a96deedd30803dbf9', 'John Doe', 'M', '01022130386', 800000001, '2023-11-01 11:00:00', '2023-11-01 11:00:00');
+INSERT INTO identity_verification VALUES (3, 1, '1996-10-31', '6d0310552889fa021610b73144646ddb817c3888ed621f6d39f4b10b9e6ce3cbd7f59e5abcf621def413ef74', '45e62dc945abfe1c21e4620e39debf1d64484a5260207c238725fdaf25a2050d', 'John Doe', 'M', '01041013396', 800000002, '2023-11-01 11:00:00', '2023-11-30 03:30:36');
