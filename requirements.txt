@@ -2,3 +2,7 @@ scrapy
 pillow
 cloudinary
 jupyter
+
+pymysql==1.1.0
+sqlalchemy==2.0.23
+python-dotenv==1.0.0
