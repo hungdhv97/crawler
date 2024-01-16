@@ -2,6 +2,7 @@ import datetime
 
 from pymysql.converters import escape_string
 from sqlalchemy import create_engine
+from sqlalchemy.exc import SQLAlchemyError
 
 from hashing_utils import hash_value
 from random_utils import generate_random_birthday, generate_random_phone, generate_random_email
@@ -41,9 +42,12 @@ class MySQLDatabase:
             with self.conn.connection.cursor() as cursor:
                 cursor.execute(sql_command)
                 return [row[0] for row in cursor.fetchall()]
+        except SQLAlchemyError as e:
+            print(f"SQLAlchemyError occurred in table '{table_name}': {e}")
+            return []
         except Exception as e:
-            print(f"Error fetching columns for table {table_name}: {e}")
-            return []  # Return an empty list if there's an error
+            print(f"Error occurred in table '{table_name}': {e}")
+            return []
 
     # Function to get total row count of a table
     def get_total_row_count(self, table_name):
@@ -52,10 +56,13 @@ class MySQLDatabase:
             with self.conn.connection.cursor() as cursor:
                 cursor.execute(sql_command)
                 result = cursor.fetchone()
-                return result[0]  # Return the count
+                return result[0]
+        except SQLAlchemyError as e:
+            print(f"SQLAlchemyError occurred in table '{table_name}': {e}")
+            return []
         except Exception as e:
-            print(f"Error fetching row count for table {table_name}: {e}")
-            return 0
+            print(f"Error occurred in table '{table_name}': {e}")
+            return []
 
     def dump_table_to_sql(self, table_name, primary_key_column, batch_size):
         columns = self.get_columns_for_table(table_name)
@@ -73,12 +80,11 @@ class MySQLDatabase:
                             rows = cursor.fetchall()
                             rows_fetched = len(rows)
                             if not rows:
-                                break  # Break the loop if no more rows are fetched
+                                break
 
                             for row in rows:
                                 last_id = row[0]
                                 row = list(row)
-                                # Update random fields and generate insert statement as before
                                 if 'birthday' in columns:
                                     row[columns.index('birthday')] = generate_random_birthday()
                                 if 'ci' in columns:

@@ -1,2 +1,2 @@
-INSERT INTO dormant_customer VALUES (800000002, '1979-09-23', 'Jane Doe', 'F', '01075679515', 'janedoe', 'JaneD', 'oe9rt1@example.com', 'jane1234', '2020-01-01 09:00:00', '2021-01-01 10:00:00', '2023-11-01 15:00:00', '2023-11-01 15:00:00');
-INSERT INTO dormant_customer VALUES (800000003, '1982-09-03', 'Jane Doe', 'F', '01048277910', 'janedoe', 'JaneD', 'vyfhjz@example.com', 'jane1234', '2020-01-01 09:00:00', '2021-01-01 10:00:00', '2023-11-01 15:00:00', '2023-11-01 15:00:00');
+INSERT INTO dormant_customer VALUES (800000002, '1976-01-02', 'Jane Doe', 'F', '01029893774', 'janedoe', 'JaneD', '19pqd@example.com', 'jane1234', '2020-01-01 09:00:00', '2021-01-01 10:00:00', '2023-11-01 15:00:00', '2023-11-01 15:00:00');
+INSERT INTO dormant_customer VALUES (800000003, '1987-11-29', 'Jane Doe', 'F', '01014839479', 'janedoe', 'JaneD', 'cgqh7qhhxk@example.com', 'jane1234', '2020-01-01 09:00:00', '2021-01-01 10:00:00', '2023-11-01 15:00:00', '2023-11-01 15:00:00');
